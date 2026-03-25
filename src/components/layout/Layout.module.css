@@ -1,0 +1,15 @@
+/* =============================================================================
+   Layout — estructura de página completa
+   ============================================================================= */
+
+/*
+  min-height: 100dvh asegura que el wrapper ocupe al menos toda la pantalla.
+  dvh = "dynamic viewport height", más fiable que vh en móviles con barras del navegador.
+  flex-direction: column + margin-top: auto en el Footer empujan el pie de página
+  al fondo aunque el contenido sea corto. Esto se llama "sticky footer".
+*/
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}

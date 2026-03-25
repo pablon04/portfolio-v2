@@ -1,68 +1,237 @@
+/* =============================================================================
+   DESIGN SYSTEM — Portfolio v2
+   Variables CSS globales para ambos temas.
+   El atributo data-theme se aplica en el <html> desde App.tsx.
+   ============================================================================= */
+
+/* --- TEMA OSCURO (por defecto) --- */
+[data-theme="dark"] {
+  /* Paleta principal: escala de azules */
+  --color-bg-primary: #0a0f1e;       /* Fondo principal, casi negro-azulado */
+  --color-bg-secondary: #111827;     /* Fondo de tarjetas y secciones */
+  --color-bg-tertiary: #1e293b;      /* Hover y elementos elevados */
+
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;         /* Acento principal */
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+
+  --color-accent: #60a5fa;           /* Azul claro — resalta sobre fondo oscuro */
+  --color-accent-hover: #93c5fd;
+  --color-accent-dim: rgba(96, 165, 250, 0.15);
+
+  /* Texto */
+  --color-text-primary: #f1f5f9;     /* Texto principal — casi blanco */
+  --color-text-secondary: #94a3b8;   /* Texto secundario — gris azulado */
+  --color-text-muted: #475569;       /* Texto desactivado */
+  --color-text-on-accent: #0a0f1e;   /* Texto sobre botones de acento */
+
+  /* Bordes */
+  --color-border: #1e293b;
+  --color-border-subtle: rgba(148, 163, 184, 0.1);
+
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-accent: 0 0 20px rgba(96, 165, 250, 0.25);
+}
+
+/* --- TEMA CLARO --- */
+[data-theme="light"] {
+  --color-bg-primary: #f8fafc;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: #f1f5f9;
+
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+
+  --color-accent: #2563eb;           /* Azul más oscuro — resalta sobre blanco */
+  --color-accent-hover: #1d4ed8;
+  --color-accent-dim: rgba(37, 99, 235, 0.1);
+
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+  --color-text-on-accent: #ffffff;
+
+  --color-border: #e2e8f0;
+  --color-border-subtle: rgba(15, 23, 42, 0.08);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+  --shadow-accent: 0 0 20px rgba(37, 99, 235, 0.2);
+}
+
+/* =============================================================================
+   TOKENS COMPARTIDOS — No cambian entre temas
+   ============================================================================= */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Tipografía */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* Espaciado (escala de 4px) */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transiciones */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-padding: var(--space-6);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+/* =============================================================================
+   RESET Y BASE
+   ============================================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-a:hover {
-  color: #535bf2;
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-normal);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Eliminar estilos por defecto de listas */
+ul, ol {
+  list-style: none;
 }
 
+/* Links base */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Imágenes responsivas por defecto */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Botón base (reset) */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border: none;
+  background: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Inputs y formularios */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Código inline */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background-color: var(--color-bg-tertiary);
+  padding: 0.1em 0.4em;
+  border-radius: var(--radius-sm);
+}
+
+/* =============================================================================
+   UTILIDADES GLOBALES
+   ============================================================================= */
+
+/* Contenedor centrado con padding lateral */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* Ocultar visualmente pero mantener accesible para screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

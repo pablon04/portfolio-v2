@@ -1,0 +1,231 @@
+/* =============================================================================
+   Navbar — estilos con CSS Modules
+   Todas las variables vienen de index.css (el design system).
+   ============================================================================= */
+
+/* --- Contenedor principal --- */
+.navbar {
+  position: sticky;    /* Se pega al top al hacer scroll */
+  top: 0;
+  z-index: 100;        /* Por encima del contenido de la página */
+  width: 100%;
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+  /* Desenfoque del fondo para efecto "glassmorphism" ligero */
+  backdrop-filter: blur(8px);
+  /* En modo oscuro el bg-secondary ya tiene algo de transparencia implícita,
+     así que el backdrop-filter añade un toque visual elegante sin necesitar
+     colores extra. */
+}
+
+/* --- Fila interior: logo | nav | controls --- */
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;        /* Altura fija del Navbar */
+  gap: var(--space-4);
+}
+
+/* --- Logo --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  /* Sobreescribimos el color del enlace base de index.css */
+  color: var(--color-text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  flex-shrink: 0; /* No se encoge si la nav ocupa espacio */
+}
+
+.logo:hover {
+  color: var(--color-text-primary); /* No cambia de color al hover */
+}
+
+.logoName {
+  color: var(--color-text-primary);
+}
+
+.logoDot {
+  color: var(--color-accent);      /* El punto en color acento */
+  font-size: var(--text-2xl);
+  line-height: 1;
+}
+
+.logoSuffix {
+  color: var(--color-text-secondary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+}
+
+/* --- Navegación (escritorio) --- */
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-tertiary);
+}
+
+/* Clase que NavLink aplica cuando la ruta está activa */
+.navLinkActive {
+  color: var(--color-accent) !important;
+  background-color: var(--color-accent-dim);
+}
+
+/* --- Controles (toggle + hamburguesa) --- */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* Botón toggle de tema */
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.themeToggle:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-tertiary);
+}
+
+/* --- Botón hamburguesa (oculto en escritorio) --- */
+.hamburger {
+  display: none;      /* Se muestra solo en móvil (ver media query abajo) */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.hamburger:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+.hamburgerLine {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: var(--color-text-secondary);
+  border-radius: var(--radius-full);
+  transition:
+    transform var(--transition-base),
+    opacity var(--transition-base);
+  transform-origin: center;
+}
+
+/* Animación X cuando el menú está abierto */
+.hamburgerLineTop {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburgerLineMid {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburgerLineBot {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- Overlay oscuro (móvil) --- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 99; /* Por debajo del navbar (z-index: 100) pero encima del contenido */
+  cursor: pointer;
+}
+
+/* =============================================================================
+   RESPONSIVE — Mobile (<= 768px)
+   ============================================================================= */
+@media (max-width: 768px) {
+  /* Mostrar el botón hamburguesa */
+  .hamburger {
+    display: flex;
+  }
+
+  /* El menú pasa a ser un panel deslizante desde la derecha */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(280px, 80vw);   /* Máximo 280px o el 80% del viewport */
+    background-color: var(--color-bg-secondary);
+    border-left: 1px solid var(--color-border);
+    padding: 80px var(--space-6) var(--space-6);
+    transform: translateX(100%);    /* Oculto a la derecha por defecto */
+    transition: transform var(--transition-base);
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  /* Cuando está abierto, desliza hacia la vista */
+  .navOpen {
+    transform: translateX(0);
+  }
+
+  /* En móvil, los enlaces van en columna */
+  .navList {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .navLink {
+    font-size: var(--text-base);
+    padding: var(--space-3) var(--space-4);
+    width: 100%;
+  }
+}
