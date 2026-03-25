@@ -8,22 +8,19 @@ import type { Experience } from '../types';
 
 export const experiences: Experience[] = [
   {
-    id: 'asir',
-    type: 'education',
-    title: 'Técnico Superior en Administración de Sistemas Informáticos en Red',
-    organization: 'IES / Centro de Formación', // TODO: nombre real de tu centro
-    location: 'España',
-    startDate: '2023-09',
-    endDate: undefined, // Aún en curso
+    id: 'flota',
+    type: 'work',
+    title: 'Coordinador de Flota',
+    organization: 'Givit.pro',
+    startDate: '2025-01',
+    endDate: undefined,
     description:
-      'Ciclo formativo de grado superior enfocado en administración de sistemas, redes, servicios en red y virtualización.',
+      'Programo y Organizo todos las motos para que estén operativas.',
     highlights: [
-      'Administración de sistemas Linux y Windows Server',
-      'Configuración de redes: routing, VLANs, DNS, DHCP',
-      'Virtualización con VirtualBox y contenedores Docker',
-      'Scripting con Bash y Python para automatización',
-      'Implantación de servicios web y bases de datos',
-    ],
+      'Gestión de Averías e Incidencias',
+      'Organizar proyecciones y administrar motos cada semana',
+      'Control de talleres, trabajadores, etc.',
+    ]
   },
   {
     id: 'freelance-dev',
@@ -35,12 +32,31 @@ export const experiences: Experience[] = [
     description:
       'Desarrollo de proyectos personales y colaboraciones puntuales aplicando tecnologías web modernas.',
     highlights: [
-      'Desarrollo frontend con React y TypeScript',
-      'Despliegue de aplicaciones con Docker',
+      'Desarrollo frontend con React, TypeScript y TailwindCss',
+      'Despliegue de aplicaciones con Vercel',
       'Control de versiones con Git y GitHub',
     ],
-    technologies: ['React', 'TypeScript', 'Docker', 'Git'],
+    technologies: ['React', 'TypeScript','TailwindCss','Vercel', 'Git'],
   },
+  {
+    id: 'asir',
+    type: 'education',
+    title: 'Técnico Superior en Administración de Sistemas Informáticos en Red',
+    organization: 'IES / Mediterraneo', // TODO: nombre real de tu centro
+    location: 'España',
+    startDate: '2024-09',
+    endDate: '2026-04', // Aún en curso
+    description:
+      'Ciclo formativo de grado superior enfocado en administración de sistemas, redes, servicios en red y virtualización.',
+    highlights: [
+      'Administración de sistemas Linux y Windows Server',
+      'Configuración de redes: routing, VLANs, DNS, DHCP',
+      'Virtualización con VirtualBox y contenedores Docker',
+      'Scripting con Bash y Python para automatización',
+      'Implantación de servicios web y bases de datos',
+    ],
+  },
+  
 ];
 
 // Solo la educación formal

@@ -1,0 +1,110 @@
+/* =============================================================================
+   ProjectsPage
+   ============================================================================= */
+
+.page {
+  min-height: 100vh;
+  padding-block: var(--space-16);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+/* --- Cabecera --- */
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.pageTitle {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+}
+
+.pageSubtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  max-width: 560px;
+}
+
+/* --- Filtros --- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.filterBtn:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-dim);
+}
+
+.filterBtnActive {
+  color: var(--color-accent);
+  background-color: var(--color-accent-dim);
+  border-color: var(--color-accent);
+}
+
+.filterCount {
+  font-size: var(--text-xs);
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-muted);
+  padding: 0.1rem var(--space-2);
+  border-radius: var(--radius-full);
+  min-width: 1.4rem;
+  text-align: center;
+}
+
+.filterBtnActive .filterCount {
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+}
+
+/* --- Grid de tarjetas --- */
+/*
+  Misma técnica que en SkillsSection: auto-fill con minmax
+  para un grid responsivo sin media queries.
+*/
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+/* --- Estado vacío --- */
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-20);
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-secondary);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-xl);
+}

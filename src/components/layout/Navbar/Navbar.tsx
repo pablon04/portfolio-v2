@@ -17,21 +17,6 @@ interface NavbarProps {
 }
 
 // ----------------------------------------------------------------------------
-// Definición de los enlaces de navegación
-// Separarlo en un array hace que sea fácil añadir o quitar enlaces
-// sin tocar el JSX.
-// ----------------------------------------------------------------------------
-
-const NAV_LINKS = [
-  { to: '/',          label: 'Inicio'      },
-  { to: '/projects',  label: 'Proyectos'   },
-  // Los siguientes dos son anclas a secciones dentro de HomePage.
-  // En fases posteriores estos links irán a secciones con smooth scroll.
-  { to: '/#skills',   label: 'Skills'      },
-  { to: '/#experience', label: 'Experiencia' },
-] as const;
-
-// ----------------------------------------------------------------------------
 // Componente
 // ----------------------------------------------------------------------------
 
@@ -60,34 +45,6 @@ export default function Navbar({ theme, toggleTheme, isDark }: NavbarProps) {
           <span className={styles.logoDot}>.</span>
           <span className={styles.logoSuffix}>dev</span>
         </NavLink>
-
-        {/* --- Navegación principal (escritorio) --- */}
-        <nav
-          className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}
-          aria-label="Navegación principal"
-        >
-          <ul className={styles.navList} role="list">
-            {NAV_LINKS.map(({ to, label }) => (
-              <li key={to}>
-                {/*
-                  La prop `className` de NavLink acepta una función que recibe
-                  un objeto con { isActive, isPending }.
-                  Así podemos aplicar la clase "active" condicionalmente.
-                */}
-                <NavLink
-                  to={to}
-                  end={to === '/'}
-                  className={({ isActive }) =>
-                    `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
-                  }
-                  onClick={handleLinkClick}
-                >
-                  {label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
 
         {/* --- Controles: toggle de tema + hamburguesa --- */}
         <div className={styles.controls}>

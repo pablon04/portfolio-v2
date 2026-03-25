@@ -8,37 +8,38 @@ import type { Project } from '../types';
 
 export const projects: Project[] = [
   {
-    id: 'portfolio-v2',
-    title: 'Portfolio Personal v2',
+    id: 'portfolio',
+    title: 'Portfolio',
     description:
       'Portfolio web personal construido con React, TypeScript y Vite. Incluye toggle de tema oscuro/claro y diseño responsivo.',
-    technologies: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
+    technologies: ['React', 'TypeScript', 'Vite', 'CSS Modules', 'Vercel'],
     status: 'in-progress',
-    repoUrl: 'https://github.com/pablonav/portfolio-v2', // TODO: actualiza con tu URL real
-    startDate: '2025-03',
+    repoUrl: 'https://github.com/pablon04/portfolio-v2', // TODO: actualiza con tu URL real
+    startDate: '2026-03',
     featured: true,
   },
   {
-    id: 'sysadmin-scripts',
-    title: 'Scripts de Administración Linux',
+    id: 'soporte-tecnico',
+    title: 'Soporte Técnico',
     description:
-      'Colección de scripts Bash para automatizar tareas comunes de administración de sistemas: backup, monitorización de servicios y gestión de usuarios.',
-    technologies: ['Bash', 'Linux', 'Cron', 'systemd'],
+      'Sistema de Tickets diseñado para cualquier empresa que necesite un sistema interno.',
+    technologies: ['Angular', 'TypeScript', 'TailwindCss', 'Supabase', 'Vercel'],
     status: 'completed',
-    repoUrl: undefined, // TODO: añade URL si está en GitHub
-    startDate: '2024-09',
-    endDate: '2025-01',
+    repoUrl: 'https://github.com/pablon04/soporte-tecnico', // TODO: añade URL si está en GitHub
+    startDate: '2025-11',
+    endDate: '2026-01',
     featured: true,
   },
   {
-    id: 'network-lab',
-    title: 'Laboratorio de Redes',
+    id: 'register-lab',
+    title: 'Registro de Muestras',
     description:
-      'Simulaciones y configuraciones de redes realizadas durante el ciclo ASIR: VLANs, routing estático, DNS y DHCP con equipos virtualizados.',
-    technologies: ['Cisco Packet Tracer', 'VirtualBox', 'Linux', 'TCP/IP'],
+      'Sistema de registro de muestras que entraban en el laboratorio, con avisos que superen fechas para eliminarlos, etc.',
+    technologies: ['Angular', 'TailwindCss', 'Supabase', 'Vercel'],
     status: 'completed',
-    startDate: '2024-01',
-    endDate: '2024-06',
+    repoUrl: 'https://github.com/pablon04/app-web-registros',
+    startDate: '2025-04',
+    endDate: '2025-05',
     featured: false,
   },
 ];

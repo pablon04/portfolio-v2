@@ -12,7 +12,7 @@ export const skills: Skill[] = [
     name: 'HTML / CSS',
     category: 'frontend',
     level: 5,
-    description: 'Maquetación semántica, Flexbox, Grid y diseño responsivo.',
+    description: 'Maquetación semántica, Flexbox, Grid y diseño responsive.',
   },
   {
     id: 'javascript',
@@ -34,6 +34,13 @@ export const skills: Skill[] = [
     category: 'frontend',
     level: 3,
     description: 'Componentes funcionales, hooks, React Router y CSS Modules.',
+  },
+  {
+    id: 'tailwind',
+    name: 'TailwindCss',
+    category: 'frontend',
+    level: 3,
+    description: 'Maquetación Flexbox y Grid, Diseño Responsive.',
   },
 
   // --- Backend / Scripting ---
@@ -57,7 +64,7 @@ export const skills: Skill[] = [
     id: 'networking',
     name: 'Redes / TCP-IP',
     category: 'systems',
-    level: 3,
+    level: 2,
     description: 'Modelo OSI, TCP/IP, DNS, DHCP, HTTP/S, VLANs y routing básico.',
   },
 
@@ -66,7 +73,7 @@ export const skills: Skill[] = [
     id: 'docker',
     name: 'Docker',
     category: 'devops',
-    level: 3,
+    level: 2,
     description: 'Contenedores, Docker Compose y despliegue de servicios.',
   },
 

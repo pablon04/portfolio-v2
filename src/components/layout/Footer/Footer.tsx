@@ -10,7 +10,7 @@ export default function Footer() {
 
         {/* Nombre y copyright */}
         <p className={styles.copy}>
-          &copy; {currentYear} <span className={styles.name}>Pablo Nav</span>
+          &copy; {currentYear} <span className={styles.name}>Pablo Navarro</span>
         </p>
 
         {/* Texto central opcional */}
@@ -21,7 +21,7 @@ export default function Footer() {
         {/* Links externos */}
         <nav aria-label="Links de contacto" className={styles.links}>
           <a
-            href="https://github.com/pablonav"
+            href="https://github.com/pablon04"
             target="_blank"
             rel="noopener noreferrer"  /* Seguridad: evita que la nueva pestaña acceda a window.opener */
             className={styles.link}
@@ -31,7 +31,7 @@ export default function Footer() {
           </a>
           <span className={styles.separator} aria-hidden="true">·</span>
           <a
-            href="https://linkedin.com/in/pablonav"
+            href="https://www.linkedin.com/in/pablonavdev/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}

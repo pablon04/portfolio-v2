@@ -1,79 +1,207 @@
-/* Home.module.css — Estilos de la página de inicio */
+/* =============================================================================
+  Home.module.css — Estilos de la página de inicio
+   ============================================================================= */
 
 .main {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-8) var(--container-padding);
-  gap: var(--space-8);
 }
 
-/* Botón de tema temporal — Fase 2 lo mueve al Navbar */
-.themeToggle {
-  position: fixed;
-  top: var(--space-4);
-  right: var(--space-4);
-  background-color: var(--color-bg-tertiary);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--text-sm);
-  font-weight: var(--font-medium);
-  cursor: pointer;
-  transition:
-    background-color var(--transition-fast),
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
-  z-index: 100;
-}
+/* =============================================================================
+  HERO
+   ============================================================================= */
 
-.themeToggle:hover {
-  background-color: var(--color-accent-dim);
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-accent);
-}
-
-/* Hero placeholder */
 .hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-24);
+  /* Fondo con sutil degradado del primary al secondary */
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-primary) 0%,
+    var(--color-bg-secondary) 100%
+  );
+}
+
+.heroInner {
+  position: relative;   /* Queda por encima de la decoración de fondo */
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-4);
   text-align: center;
+  gap: var(--space-5);
 }
 
 .greeting {
-  font-size: var(--text-lg);
+  font-size: var(--text-2xl);
   color: var(--color-text-secondary);
   font-weight: var(--font-medium);
 }
 
+/*
+  Nombre con degradado de color.
+  background-clip: text + color: transparent es la técnica estándar
+  para aplicar un degradado al texto en CSS.
+*/
 .name {
-  font-size: var(--text-5xl);
+  font-size: clamp(var(--text-4xl), 8vw, 4rem);
   font-weight: var(--font-bold);
-  color: var(--color-accent);
   line-height: var(--leading-tight);
+  background: linear-gradient(
+    135deg,
+    var(--color-text-primary) 0%,
+    var(--color-accent) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .role {
   font-size: var(--text-xl);
   color: var(--color-text-secondary);
-  max-width: 480px;
+  font-weight: var(--font-medium);
 }
 
-.themeIndicator {
-  margin-top: var(--space-8);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  background-color: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-2) var(--space-4);
-}
-
-.themeIndicator strong {
+.separator {
   color: var(--color-accent);
+  margin-inline: var(--space-2);
+}
+
+.bio {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 520px;
+}
+
+/* --- Botones CTA --- */
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+  margin-top: var(--space-3);
+}
+
+/* Botón principal (relleno) */
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-on-accent);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-accent);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.ctaPrimary:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: var(--color-text-on-accent);
+  box-shadow: var(--shadow-accent);
+  transform: translateY(-2px);
+}
+
+/* Botón secundario (contorno) */
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-accent);
+  background-color: transparent;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-accent);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.ctaSecondary:hover {
+  background-color: var(--color-accent-dim);
+  color: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+/* --- Decoración de fondo: patrón de puntos en grid --- */
+.heroBgDecoration {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* Patrón de puntos usando radial-gradient repetido */
+  background-image: radial-gradient(
+    circle,
+    var(--color-border) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* =============================================================================
+  PROYECTOS DESTACADOS
+  ============================================================================= */
+
+.featuredSection {
+  padding-block: var(--space-20);
+  background-color: var(--color-bg-secondary);
+}
+
+.featuredInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* Encabezado con título + "Ver todos" alineados */
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+}
+
+.seeAllLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-accent);
+  transition: gap var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.seeAllLink:hover {
+  gap: var(--space-2);
+  color: var(--color-accent-hover);
+}
+
+/* Grid de tarjetas — igual que en ProjectsPage */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
 }
