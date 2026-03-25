@@ -11,7 +11,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 
 function App() {
-  const { theme, toggleTheme, isDark } = useTheme();
+  const { toggleTheme, isDark } = useTheme();
 
   return (
     <BrowserRouter>
@@ -27,7 +27,7 @@ function App() {
         */}
         <Route
           element={
-            <Layout theme={theme} toggleTheme={toggleTheme} isDark={isDark} />
+            <Layout toggleTheme={toggleTheme} isDark={isDark} />
           }
         >
           {/* index={true} significa que esta ruta se activa cuando la URL es exactamente "/" */}

@@ -3,7 +3,6 @@
 // Esto nos ahorra tener que comparar manualmente la ruta actual.
 import { NavLink } from 'react-router';
 import { useState } from 'react';
-import type { Theme } from '../../../types';
 import styles from './Navbar.module.css';
 
 // ----------------------------------------------------------------------------
@@ -11,7 +10,6 @@ import styles from './Navbar.module.css';
 // ----------------------------------------------------------------------------
 
 interface NavbarProps {
-  theme: Theme;
   toggleTheme: () => void;
   isDark: boolean;
 }
@@ -20,7 +18,7 @@ interface NavbarProps {
 // Componente
 // ----------------------------------------------------------------------------
 
-export default function Navbar({ theme, toggleTheme, isDark }: NavbarProps) {
+export default function Navbar({ toggleTheme, isDark }: NavbarProps) {
   // Estado local para controlar si el menú móvil está abierto o cerrado.
   // Este estado SOLO vive en Navbar; no necesita subir al padre.
   const [menuOpen, setMenuOpen] = useState(false);

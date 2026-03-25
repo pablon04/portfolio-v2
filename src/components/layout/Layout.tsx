@@ -3,21 +3,19 @@
 import { Outlet } from 'react-router';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
-import type { Theme } from '../../types';
 import styles from './Layout.module.css';
 
 interface LayoutProps {
-  theme: Theme;
   toggleTheme: () => void;
   isDark: boolean;
 }
 
-export default function Layout({ theme, toggleTheme, isDark }: LayoutProps) {
+export default function Layout({ toggleTheme, isDark }: LayoutProps) {
   return (
     // La clase wrapper asegura que el footer siempre quede al fondo,
     // incluso en páginas con poco contenido (ver Layout.module.css).
     <div className={styles.wrapper}>
-      <Navbar theme={theme} toggleTheme={toggleTheme} isDark={isDark} />
+      <Navbar toggleTheme={toggleTheme} isDark={isDark} />
 
       {/*
         <Outlet /> es donde React Router "inyecta" la página activa.
