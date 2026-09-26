@@ -1,5 +1,6 @@
 import type { Project } from '../types';
 import cuentasPlatformImage from '../assets/cuentas-platform.jpeg';
+import soporteTecnicoImage from '../assets/soporte-tecnico.jpeg';
 
 // =============================================================================
 // Proyectos de Pablo
@@ -29,6 +30,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/pablon04/soporte-tecnico', // TODO: añade URL si está en GitHub
     startDate: '2025-11',
     endDate: '2026-01',
+    imageUrl: soporteTecnicoImage, 
     featured: true,
   },
   {

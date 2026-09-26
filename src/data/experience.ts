@@ -13,7 +13,7 @@ export const experiences: Experience[] = [
     title: 'Coordinador de Flota',
     organization: 'Givit.pro',
     startDate: '2025-01',
-    endDate: undefined,
+    endDate: '2026-09',
     description:
       'Programo y Organizo todos las motos para que estén operativas.',
     highlights: [
