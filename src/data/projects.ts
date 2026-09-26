@@ -1,6 +1,6 @@
 import type { Project } from '../types';
 import cuentasPlatformImage from '../assets/cuentas-platform.jpeg';
-import soporteTecnicoImage from '../assets/soporte-tecnico.jpeg';
+import soporteTecnicoImage from '../assets/soporte.png';
 
 // =============================================================================
 // Proyectos de Pablo
