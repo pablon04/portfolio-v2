@@ -42,6 +42,30 @@ export const projects: Project[] = [
     endDate: '2025-05',
     featured: false,
   },
+  {
+    id: 'bot-citas',
+    title: 'Bot de Citas en Telegram',
+    description:
+      'Bot de Telegram automatizado para gestionar citas de revisión de vehículos: pedir, consultar y cancelar citas mediante botones, con los huecos y reservas guardados en Google Sheets.',
+    technologies: ['Node.js', 'Telegram', 'Google Sheets API', 'Apps Script', 'Vercel'],
+    status: 'completed',
+    repoUrl: 'https://github.com/pablon04/bot_citas_glv_gra',
+    startDate: '2026-03',
+    endDate: '2026-03',
+    featured: true,
+  },
+  {
+    id: 'cuentas-platform',
+    title: 'CuentasPlatform',
+    description:
+      'Plataforma de finanzas personales (web y app Android) para controlar efectivo, tarjeta y carpetas de ahorro, con historial de ingresos/gastos y detección de pagos NFC con Google Wallet.',
+    technologies: ['Next.js', 'React Native', 'Expo', 'TypeScript', 'TailwindCss', 'Supabase', 'Turborepo'],
+    status: 'in-progress',
+    repoUrl: 'https://github.com/pablon04/CuentaPlatform',
+    imageUrl: '../assets/cuentas-platform.jpeg',
+    startDate: '2026-09',
+    featured: true,
+  },
 ];
 
 // Proyectos marcados como destacados para la sección principal
