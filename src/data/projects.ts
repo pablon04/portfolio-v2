@@ -1,4 +1,5 @@
 import type { Project } from '../types';
+import cuentasPlatformImage from '../assets/cuentas-platform.jpeg';
 
 // =============================================================================
 // Proyectos de Pablo
@@ -49,7 +50,7 @@ export const projects: Project[] = [
       'Bot de Telegram automatizado para gestionar citas de revisión de vehículos: pedir, consultar y cancelar citas mediante botones, con los huecos y reservas guardados en Google Sheets.',
     technologies: ['Node.js', 'Telegram', 'Google Sheets API', 'Apps Script', 'Vercel'],
     status: 'completed',
-    repoUrl: 'https://github.com/pablon04/bot_citas_glv_gra',
+    repoUrl: 'https://github.com/pablon04/bot_citas',
     startDate: '2026-03',
     endDate: '2026-03',
     featured: true,
@@ -62,7 +63,7 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'React Native', 'Expo', 'TypeScript', 'TailwindCss', 'Supabase', 'Turborepo'],
     status: 'in-progress',
     repoUrl: 'https://github.com/pablon04/CuentaPlatform',
-    imageUrl: '../assets/cuentas-platform.jpeg',
+    imageUrl: cuentasPlatformImage,
     startDate: '2026-09',
     featured: true,
   },
